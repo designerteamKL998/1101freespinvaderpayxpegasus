@@ -367,197 +367,59 @@
 
                 <div class="Pegasus__modal-ctn" id="Pegasus__modal_3">
                     <div class="Pegasus__modal-ctn_wrapper-3">
-                        <div class="slideshow-container">
-
-                            <div class="mySlides">
-                                <img src="image/Step1.jpg" style="width:100%">
-                                <div class="step">Step 1</div>
-                            </div>
-
-                            <div class="mySlides">
-                                <img src="image/Step2.jpg" style="width:100%">
-                                <div class="step">Step 2</div>
-                            </div>
-
-                            <div class="mySlides">
-                                <img src="image/Step3.jpg" style="width:100%">
-                                <div class="step">Step 3</div>
-                            </div>
-
-                            <div class="mySlides">
-                                <img src="image/Step4.jpg" style="width:100%">
-                                <div class="step">Step 4</div>
-                            </div>
-
-                            <div class="mySlides">
-                                <img src="image/Step5.jpg" style="width:100%">
-                                <div class="step">Step 5</div>
-                            </div>
-
-                            <div class="mySlides">
-                                <img src="image/Step6.jpg" style="width:100%">
-                                <div class="step">Step 6</div>
-                            </div>
-
-                            <div class="mySlides">
-                                <img src="image/Step7.jpg" style="width:100%">
-                                <div class="step">Step 7</div>
-                            </div>
-
-                            <div class="mySlides">
-                                <img src="image/Step8.jpg" style="width:100%">
-                                <div class="step">Step 8</div>
-                            </div>
-
-                            <div class="mySlides">
-                                <img src="image/Step9.jpg" style="width:100%">
-                                <div class="step">Step 9</div>
-                            </div>
-
-                            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                        <div class="slideshow-container slideshow-container--video">
+                            <video class="tutorialVideo" controls playsinline preload="metadata">
+                                <source src="video/!!EN__tutorialRedeemSpin.mp4" type="video/mp4" />
+                            </video>
                         </div>
                         <br>
 
-                        <div style="text-align:center">
-                            <span class="dot" onclick="currentSlide(1)"></span>
-                            <span class="dot" onclick="currentSlide(2)"></span>
-                            <span class="dot" onclick="currentSlide(3)"></span>
-                            <span class="dot" onclick="currentSlide(4)"></span>
-                            <span class="dot" onclick="currentSlide(5)"></span>
-                            <span class="dot" onclick="currentSlide(6)"></span>
-                            <span class="dot" onclick="currentSlide(7)"></span>
-                            <span class="dot" onclick="currentSlide(8)"></span>
-                            <span class="dot" onclick="currentSlide(9)"></span>
-                        </div>
                     </div>
                     <style>
-                        .slideshow-container {
-                            max-width: 1000px;
-                            position: relative;
-                            margin: auto;
-                        }
+                        .slideshow-container { max-width: 1000px; position: relative; margin: auto; }
 
-                        .mySlides {
-                            display: none;
-                        }
+                        .slideshow-container--video { width: 100%; max-width: 100%; overflow: hidden; }
 
-                        .prev, .next {
-                            cursor: pointer;
-                            position: absolute;
-                            top: 50%;
-                            width: auto;
-                            margin-top: -22px;
-                            padding: 16px;
-                            color: white;
-                            font-weight: bold;
-                            font-size: 18px;
-                            transition: 0.6s ease;
-                            border-radius: 0 3px 3px 0;
-                            user-select: none;
-                                background: rgba(0, 0, 0, 0.8);
-                        }
-
-                        .next {
-                            right: 0;
-                            border-radius: 3px 0 0 3px;
-                        }
-
-                            .prev:hover, .next:hover {
-                                background-color: rgba(0,0,0,0.8);
-                            }
-
-                        .step {
-                            color: #f2f2f2;
-                            font-size: 15px;
-                            font-weight: bold;
-                            padding: 8px 12px;
-                            position: absolute;
-                            bottom: 8px;
-                            width: 100%;
-                            text-align: center;
-                        }
-
-                        .dot {
-                            cursor: pointer;
-                            height: 15px;
-                            width: 15px;
-                            margin: 0 2px;
-                            background-color: #bbb;
-                            border-radius: 50%;
-                            display: inline-block;
-                            transition: background-color 0.6s ease;
-                        }
-
-                            .dot.active {
-                                background-color: #c59247;
-                                transition: background-color 0.6s ease;
-                            }
-
-                        .bounce2 {
-                            animation: bounce2 2s ease infinite;
-                        }
-
-                        @keyframes bounce2 {
-                            0%, 20%, 50%, 80%, 100% {
-                                transform: translateY(0);
-                            }
-
-                            40% {
-                                transform: translateY(-30px);
-                            }
-
-                            60% {
-                                transform: translateY(-15px);
-                            }
-                        }
-
-                        .bounce1 {
-                            animation: bounce1 3s ease infinite;
-                        }
-
-                        @keyframes bounce1 {
-                            0%, 20%, 50%, 80%, 100% {
-                                transform: translateY(0);
-                            }
-
-                            40% {
-                                transform: translateY(-30px);
-                            }
-
-                            60% {
-                                transform: translateY(-15px);
-                            }
-                        }
+                            .slideshow-container--video .tutorialVideo { display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: contain; background: #000; border-radius: 12px; }
                     </style>
                     <script>
-                        let slideIndex = 1;
-                        showSlides(slideIndex);
+                        function stopVideosInsideModal(modal) {
+                            if (!modal) return;
 
-                        // Next/previous controls
-                        function plusSlides(n) {
-                            showSlides(slideIndex += n);
+                            modal.querySelectorAll("video").forEach(function (video) {
+                                video.pause();
+                                video.currentTime = 0;
+                            });
                         }
 
-                        // Thumbnail image controls
-                        function currentSlide(n) {
-                            showSlides(slideIndex = n);
-                        }
+                        document.addEventListener("click", function (e) {
+                            const closeBtn = e.target.closest(".Pegasus__modal-close");
 
-                        function showSlides(n) {
-                            let i;
-                            let slides = document.getElementsByClassName("mySlides");
-                            let dots = document.getElementsByClassName("dot");
-                            if (n > slides.length) { slideIndex = 1 }
-                            if (n < 1) { slideIndex = slides.length }
-                            for (i = 0; i < slides.length; i++) {
-                                slides[i].style.display = "none";
+                            if (!closeBtn) return;
+
+                            const modal = closeBtn.closest(".Pegasus__modal-ctn");
+                            stopVideosInsideModal(modal);
+                        });
+
+                        const pegasusModal3 = document.getElementById("Pegasus__modal_3");
+
+                        const pegasusObserver = new MutationObserver(function () {
+                            const style = window.getComputedStyle(pegasusModal3);
+
+                            if (
+                                style.display === "none" ||
+                                pegasusModal3.classList.contains("hide") ||
+                                pegasusModal3.classList.contains("is-hidden")
+                            ) {
+                                stopVideosInsideModal(pegasusModal3);
                             }
-                            for (i = 0; i < dots.length; i++) {
-                                dots[i].className = dots[i].className.replace(" active", "");
-                            }
-                            slides[slideIndex - 1].style.display = "block";
-                            dots[slideIndex - 1].className += " active";
+                        });
+
+                        if (pegasusModal3) {
+                            pegasusObserver.observe(pegasusModal3, {
+                                attributes: true,
+                                attributeFilter: ["class", "style"]
+                            });
                         }
                     </script>
                     <div class="Pegasus__modal-close" id="js-close-Pegasus_3">
